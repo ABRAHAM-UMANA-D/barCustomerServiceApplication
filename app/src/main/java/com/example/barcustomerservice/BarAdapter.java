@@ -13,7 +13,7 @@ import java.util.List;
 
 public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
     private final LayoutInflater mInflater;
-    private ArrayList<Mesa> listMesa = new ArrayList<>();
+    private ArrayList<Mesa> listMesas = new ArrayList<>();
 
     public BarAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
@@ -29,12 +29,11 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull BarViewHolder holder, int position) {
-        Mesa mesa = getMesaAt();
+        Mesa mesa = listMesas.get(position);
+
     }
 
-    public Mesa getMesaAt(int pos){
-        return getItemId(pos);
-    }
+
 
     @Override
     public int getItemCount() {
