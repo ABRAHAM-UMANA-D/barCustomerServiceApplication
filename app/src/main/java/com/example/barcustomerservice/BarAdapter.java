@@ -8,8 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
     private final LayoutInflater mInflater;
+    private ArrayList<Mesa> listMesa = new ArrayList<>();
 
     public BarAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
@@ -25,7 +29,11 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull BarViewHolder holder, int position) {
+        Mesa mesa = getMesaAt();
+    }
 
+    public Mesa getMesaAt(int pos){
+        return getItemId(pos);
     }
 
     @Override
