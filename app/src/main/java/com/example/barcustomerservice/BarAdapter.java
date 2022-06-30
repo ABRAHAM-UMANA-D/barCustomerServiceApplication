@@ -20,7 +20,7 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
     @Override
     public BarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
-        return null;
+        return new BarViewHolder(itemView);
     }
 
     @Override
