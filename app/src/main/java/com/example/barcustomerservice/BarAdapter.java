@@ -1,36 +1,42 @@
 package com.example.barcustomerservice;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class BarAdapter extends RecyclerView.Adapter<ViewHolder> {
-    private List<Source> sourceList;
+public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
+    private final LayoutInflater mInflater;
 
-    public BarAdapter(List<Source> sourceList) {
-        this.sourceList = sourceList;
+    public BarAdapter(Context context) {
+        this.mInflater = LayoutInflater.from(context);
     }
+
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View view = LayoutInflater.from(
-                parent.getContext()).inflate(R.layout.card_item, parent, false);
-        return new ViewHolder(view, sourceList);
+    public BarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
+        return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.getTitle().setText(sourceList.get(i).getTitle());
-        viewHolder.getImage().setImageResource(sourceList.get(i).getImage());
+    public void onBindViewHolder(@NonNull BarViewHolder holder, int position) {
+
     }
 
     @Override
     public int getItemCount() {
-        return sourceList.size();
+        return 0;
+    }
+
+    public class BarViewHolder extends RecyclerView.ViewHolder {
+
+        public BarViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }
