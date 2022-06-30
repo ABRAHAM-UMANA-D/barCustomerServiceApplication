@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1053277744385",
+    "project_id": "barcustomerservice-a6a4f",
+    "storage_bucket": "barcustomerservice-a6a4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053277744385:android:d1c9c511f47e58103dff00",
+        "android_client_info": {
+          "package_name": "com.example.barcustomerservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053277744385-k1n13urb9qr55tfka7faspkma4q4s8ac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-cDTxLw9fu8_YUHKJZJdiRn_IdMuRBf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053277744385-k1n13urb9qr55tfka7faspkma4q4s8ac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
