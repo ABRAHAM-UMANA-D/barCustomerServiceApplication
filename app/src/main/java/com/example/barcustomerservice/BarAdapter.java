@@ -30,12 +30,12 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BarViewHolder holder, int position) {
         Mesa mesa = listMesas.get(position);
-
+        holder.txt_numero.setText(mesa.getNumero_mesa());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listMesas.size();
     }
 
     public class BarViewHolder extends RecyclerView.ViewHolder {
@@ -43,6 +43,7 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
 
         public BarViewHolder(@NonNull View itemView) {
             super(itemView);
+            txt_numero=itemView.findViewById(R.id.text_numero);
         }
     }
 }
