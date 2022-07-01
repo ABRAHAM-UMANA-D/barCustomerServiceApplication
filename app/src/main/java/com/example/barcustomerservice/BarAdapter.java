@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +20,6 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
         this.mInflater = LayoutInflater.from(context);
     }
 
-
     @NonNull
     @Override
     public BarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,14 +33,13 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
 
     }
 
-
-
     @Override
     public int getItemCount() {
         return 0;
     }
 
     public class BarViewHolder extends RecyclerView.ViewHolder {
+        TextView txt_numero;
 
         public BarViewHolder(@NonNull View itemView) {
             super(itemView);
