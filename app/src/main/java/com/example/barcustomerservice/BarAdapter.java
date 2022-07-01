@@ -38,6 +38,10 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
         return listMesas.size();
     }
 
+    public void setItems(ArrayList<Mesa> mesa) {
+        listMesas.addAll(mesa);
+    }
+
     public class BarViewHolder extends RecyclerView.ViewHolder {
         TextView txt_numero;
 

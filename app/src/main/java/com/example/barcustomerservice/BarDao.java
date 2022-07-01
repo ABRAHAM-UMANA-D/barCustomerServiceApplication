@@ -8,20 +8,19 @@ import com.google.firebase.database.Query;
 import java.util.HashMap;
 
 public class BarDao {
-
     private DatabaseReference databaseReference;
 
     public BarDao() {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        databaseReference = db.getReference(Bar.class.getSimpleName());
+        databaseReference = db.getReference(Mesa.class.getSimpleName());
     }
 
     public Query get(){
         return databaseReference;
     }
 
-    public Task<Void> add (Derrumbe der){
-        return databaseReference.push().setValue(der);
+    public Task<Void> add (Mesa mesa){
+        return databaseReference.push().setValue(mesa);
     }
 
     public Task<Void> update(String key, HashMap<String,Object> hashMap){
