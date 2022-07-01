@@ -64,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });*/
+
+        btn1.setOnClickListener(v -> {
+            Mesa mesa= new Mesa(1);
+            dao.add(mesa).addOnCompleteListener(suc ->{
+                btn1.setEnabled(false);
+                Toast.makeText(this, "Numero guardado",Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener(er ->{
+                Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        });
     }
 
     private void loadData(){
@@ -90,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
 

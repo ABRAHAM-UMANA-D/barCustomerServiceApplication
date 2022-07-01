@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1053277744385",
+    "firebase_url": "https://barcustomerservice-a6a4f-default-rtdb.firebaseio.com",
     "project_id": "barcustomerservice-a6a4f",
     "storage_bucket": "barcustomerservice-a6a4f.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1053277744385-738iri6047odcf93igq90t6t94cvebp2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.barcustomerservice",
+            "certificate_hash": "80f3874ae0143a58125cf8b39d61bb5416d893e1"
+          }
+        },
         {
           "client_id": "1053277744385-k1n13urb9qr55tfka7faspkma4q4s8ac.apps.googleusercontent.com",
           "client_type": 3
