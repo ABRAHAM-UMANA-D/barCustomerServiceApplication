@@ -32,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerview);
+        btn1=findViewById(R.id.idbuttonmesa1);
+        btn2=findViewById(R.id.idbuttonmesa2);
+        btn3=findViewById(R.id.idbuttonmesa3);
+        btn4=findViewById(R.id.idbuttonmesa4);
+        btn5=findViewById(R.id.idbuttonmesa5);
+        btn6=findViewById(R.id.idbuttonmesa6);
+        btn7=findViewById(R.id.idbuttonmesa7);
+        btn8=findViewById(R.id.idbuttonmesa8);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
