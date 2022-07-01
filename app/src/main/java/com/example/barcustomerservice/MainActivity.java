@@ -20,7 +20,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
     private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8;
     BarAdapter adapter;
     BarDao dao;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerview);
+        //recyclerView = findViewById(R.id.recyclerview);
         btn1=findViewById(R.id.idbuttonmesa1);
         btn2=findViewById(R.id.idbuttonmesa2);
         btn3=findViewById(R.id.idbuttonmesa3);
@@ -40,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
         btn6=findViewById(R.id.idbuttonmesa6);
         btn7=findViewById(R.id.idbuttonmesa7);
         btn8=findViewById(R.id.idbuttonmesa8);
-        recyclerView.setHasFixedSize(true);
+
+        //recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(manager);
+        //recyclerView.setLayoutManager(manager);
         adapter=new BarAdapter(this);
-        recyclerView.setAdapter(adapter);
+        //recyclerView.setAdapter(adapter);
         dao=new BarDao();
         loadData();
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+      /*  recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 LinearLayoutManager linearLayoutManager= (LinearLayoutManager) recyclerView.getLayoutManager();
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
     }
 
     private void loadData(){
