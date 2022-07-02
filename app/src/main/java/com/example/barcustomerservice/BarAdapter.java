@@ -30,7 +30,7 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BarViewHolder holder, int position) {
         Mesa mesa = listMesas.get(position);
-        holder.txt_numero.setText(mesa.getNumero_mesa());
+        holder.txt_numero.setText(" Mesa "+mesa.getNumero_mesa());
     }
 
     @Override

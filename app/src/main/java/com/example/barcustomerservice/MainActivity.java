@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         btn7=findViewById(R.id.idbuttonmesa7);
         btn8=findViewById(R.id.idbuttonmesa8);
 
-        //recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        //recyclerView.setLayoutManager(manager);
+        recyclerView.setLayoutManager(manager);
         adapter=new BarAdapter(this);
-        //recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
         dao=new BarDao();
         loadData();
       recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         Mesa mesa= new Mesa(num);
         dao.add(mesa).addOnCompleteListener(suc ->{
             btn.setEnabled(false);
+            loadData();
             Toast.makeText(this, "Mesa reservada",Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(er ->{
             Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData(){
+
         dao.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(
                         getApplicationContext(),
-                        "ERROR",
+                        error.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
         });
