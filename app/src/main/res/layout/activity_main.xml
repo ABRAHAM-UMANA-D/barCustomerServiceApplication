@@ -7,131 +7,148 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="100dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout">
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp">
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Mesa 1" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 2" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 3" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 4" />
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout1"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="25dp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 5" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 6" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 7" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/idbuttonmesa8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mesa 8" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="20dp">
+        android:layout_marginTop="150dp"
+        tools:listitem="@layout/recyclerview_item" />
 
-        <Space
-            android:layout_width="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/idbuttonmesa1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mesa 1"
-            android:enabled="true"/>
-
-        <Space
-            android:layout_width="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 2" />
-
-        <Space
-            android:layout_width="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 3" />
-
-        <Space
-            android:layout_width="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 4" />
-
-        <Space
-            android:layout_width="5dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="100dp"
-        android:layout_height="204dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="200dp">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 5" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 6" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 7" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/idbuttonmesa8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mesa 8" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:layout_weight="1" />
-    </LinearLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

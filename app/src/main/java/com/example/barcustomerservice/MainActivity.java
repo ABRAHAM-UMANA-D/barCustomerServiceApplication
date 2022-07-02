@@ -20,7 +20,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    //private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8;
     BarAdapter adapter;
     BarDao dao;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //recyclerView = findViewById(R.id.recyclerview);
+        recyclerView = findViewById(R.id.recyclerview);
         btn1=findViewById(R.id.idbuttonmesa1);
         btn2=findViewById(R.id.idbuttonmesa2);
         btn3=findViewById(R.id.idbuttonmesa3);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         //recyclerView.setAdapter(adapter);
         dao=new BarDao();
         loadData();
-      /*  recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+      recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 LinearLayoutManager linearLayoutManager= (LinearLayoutManager) recyclerView.getLayoutManager();
@@ -63,16 +63,47 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        });*/
+        });
 
         btn1.setOnClickListener(v -> {
-            Mesa mesa= new Mesa(1);
-            dao.add(mesa).addOnCompleteListener(suc ->{
-                btn1.setEnabled(false);
-                Toast.makeText(this, "Numero guardado",Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(er ->{
-                Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-            });
+           addNumber(1,btn1);
+        });
+
+        btn2.setOnClickListener(v -> {
+           addNumber(2,btn2);
+        });
+
+        btn3.setOnClickListener(v -> {
+            addNumber(3,btn3);
+        });
+
+        btn4.setOnClickListener(v -> {
+            addNumber(4,btn4);
+        });
+
+        btn5.setOnClickListener(v -> {
+            addNumber(5,btn5);
+        });
+
+        btn6.setOnClickListener(v -> {
+            addNumber(6,btn6);
+        });
+
+        btn7.setOnClickListener(v -> {
+            addNumber(7,btn7);
+        });
+        btn8.setOnClickListener(v -> {
+            addNumber(8,btn8);
+        });
+    }
+
+    private void addNumber(int num, Button btn ){
+        Mesa mesa= new Mesa(num);
+        dao.add(mesa).addOnCompleteListener(suc ->{
+            btn.setEnabled(false);
+            Toast.makeText(this, "Mesa reservada",Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(er ->{
+            Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -81,11 +112,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Mesa> mesas = new ArrayList<>();
-                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    Mesa mesa=dataSnapshot.getValue(Mesa.class);
-                    mesa.setKey(dataSnapshot.getKey());
+                for (DataSnapshot data : snapshot.getChildren()){
+                    Mesa mesa = data.getValue(Mesa.class);
+                    mesa.setKey(data.getKey());
                     mesas.add(mesa);
-                    key = dataSnapshot.getKey();
+                    key = data.getKey();
                 }
                 adapter.setItems(mesas);
                 adapter.notifyDataSetChanged();

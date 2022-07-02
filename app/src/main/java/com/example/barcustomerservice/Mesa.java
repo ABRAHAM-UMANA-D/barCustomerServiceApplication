@@ -1,12 +1,19 @@
 package com.example.barcustomerservice;
 
-public class Mesa {
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
+public class Mesa implements Serializable {
+    @Exclude
     private String key;
     private int numero_mesa;
 
     public Mesa(int numero_mesa) {
         this.numero_mesa = numero_mesa;
     }
+
+    public Mesa() {}
 
     public int getNumero_mesa() {
         return numero_mesa;
