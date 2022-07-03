@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TAG","Posicion "+id);
                 dao.delete(id);
                 if(position!=0)adapter.getListMesas().remove(position);
+               // if(adapter.getListMesas().get(position).getNumero_mesa())
             }
         }).attachToRecyclerView(recyclerView);
     }
