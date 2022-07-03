@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 String id=adapter.getListMesas().get(position).getKey();
                 Log.d("TAG","Posicion "+id);
                 dao.delete(id);
-                //adapter.notifyDataSetChanged();
                 if(position!=0)adapter.getListMesas().remove(position);
-                //loadData();
             }
         }).attachToRecyclerView(recyclerView);
     }
