@@ -93,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
-                Log.d("TAG","Posicion "+position);
                 String id=adapter.getListMesas().get(position).getKey();
-                Log.d("TAG","Posicion "+id);
                 dao.delete(id);
-                if(position!=0)adapter.getListMesas().remove(position);
-               // if(adapter.getListMesas().get(position).getNumero_mesa())
+                if(adapter.getListMesas().get(position).getNumero_mesa()==1){
+                    Log.d("TAG","Mesa "+adapter.getListMesas().get(0).getNumero_mesa());
+                    btn1.setEnabled(true);
+                }
+                adapter.getListMesas().remove(position);
+                adapter.notifyItemRemoved(position);
             }
         }).attachToRecyclerView(recyclerView);
     }
