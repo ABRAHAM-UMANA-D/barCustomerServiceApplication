@@ -93,11 +93,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
+                int numeroMesa=adapter.getListMesas().get(position).getNumero_mesa();
                 String id=adapter.getListMesas().get(position).getKey();
                 dao.delete(id);
-                if(adapter.getListMesas().get(position).getNumero_mesa()==1){
-                    btn1.setEnabled(true);
-                }
+                if(numeroMesa==1){btn1.setEnabled(true);}
+                else if(numeroMesa==2){btn2.setEnabled(true);}
+                else if(numeroMesa==3){btn3.setEnabled(true);}
+                else if(numeroMesa==4){btn4.setEnabled(true);}
+                else if(numeroMesa==5){btn5.setEnabled(true);}
+                else if(numeroMesa==6){btn6.setEnabled(true);}
+                else if(numeroMesa==7){btn7.setEnabled(true);}
+                else if(numeroMesa==8){btn8.setEnabled(true);}
+
                 adapter.getListMesas().remove(position);
                 adapter.notifyItemRemoved(position);
             }
