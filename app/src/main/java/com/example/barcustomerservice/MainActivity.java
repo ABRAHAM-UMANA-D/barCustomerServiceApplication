@@ -90,14 +90,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
-
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition()-1;
-                adapter.getListMesas().remove(position);
+                int position = viewHolder.getAdapterPosition();
+                Log.d("TAG","Posicion "+position);
                 String id=adapter.getListMesas().get(position).getKey();
+                Log.d("TAG","Posicion "+id);
                 dao.delete(id);
-                loadData();
+                //adapter.notifyDataSetChanged();
+                if(position!=0)adapter.getListMesas().remove(position);
+                //loadData();
             }
         }).attachToRecyclerView(recyclerView);
     }
