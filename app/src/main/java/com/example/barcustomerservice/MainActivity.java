@@ -93,20 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                dao.query(key).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.hasChildren()){
-                            DataSnapshot firsChild = snapshot.getChildren().iterator().next();
-                            dao.delete(firsChild.getRef().getKey());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                int position = viewHolder.getAdapterPosition();
+                adapter.getListMesas().remove(position);
+                String id=adapter.getListMesas().get(position).getKey();
+                dao.delete(id);
             }
         }).attachToRecyclerView(recyclerView);
     }
