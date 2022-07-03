@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 String id=adapter.getListMesas().get(position).getKey();
                 dao.delete(id);
                 if(adapter.getListMesas().get(position).getNumero_mesa()==1){
-                    Log.d("TAG","Mesa "+adapter.getListMesas().get(0).getNumero_mesa());
                     btn1.setEnabled(true);
                 }
                 adapter.getListMesas().remove(position);
