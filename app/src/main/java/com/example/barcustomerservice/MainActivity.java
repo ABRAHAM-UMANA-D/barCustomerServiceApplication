@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                int numeroMesa=adapter.getListMesas().get(position).getNumero_mesa();
-                String id=adapter.getListMesas().get(position).getKey();
+                //int position = viewHolder.getAdapterPosition();
+                int numeroMesa=adapter.getListMesas().get(0).getNumero_mesa();
+                String id=adapter.getListMesas().get(0).getKey();
                 dao.delete(id);
                 if(numeroMesa==1){btn1.setEnabled(true);}
                 else if(numeroMesa==2){btn2.setEnabled(true);}
@@ -104,9 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 else if(numeroMesa==6){btn6.setEnabled(true);}
                 else if(numeroMesa==7){btn7.setEnabled(true);}
                 else if(numeroMesa==8){btn8.setEnabled(true);}
-
-                adapter.getListMesas().remove(position);
-                adapter.notifyItemRemoved(position);
+                adapter.getListMesas().remove(0);
+                adapter.notifyItemRemoved(0);
             }
         }).attachToRecyclerView(recyclerView);
     }
