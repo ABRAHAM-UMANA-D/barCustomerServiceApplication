@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -38,8 +39,10 @@ public class BarAdapter extends RecyclerView.Adapter<BarAdapter.BarViewHolder> {
         return listMesas.size();
     }
 
-    public void setItems(ArrayList<Mesa> mesa) {
-        listMesas.addAll(mesa);
+    public void setItems(ArrayList<Mesa> mesa) {listMesas.addAll(mesa);}
+
+    public ArrayList<Mesa> getListMesas() {
+        return listMesas;
     }
 
     public class BarViewHolder extends RecyclerView.ViewHolder {

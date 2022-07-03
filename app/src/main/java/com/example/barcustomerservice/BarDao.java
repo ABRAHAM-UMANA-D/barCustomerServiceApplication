@@ -39,4 +39,8 @@ public class BarDao {
         }
         return databaseReference.orderByKey().startAfter(key).limitToFirst(8);
     }
+
+    public Query query(String key){
+        return databaseReference.child(key);
+    }
 }

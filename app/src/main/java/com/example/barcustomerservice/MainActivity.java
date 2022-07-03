@@ -2,11 +2,13 @@ package com.example.barcustomerservice;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -14,10 +16,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     BarDao dao;
     boolean isLoading=false;
     String key=null;
+    ArrayList<Mesa> mesas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 int lastVisible = linearLayoutManager.findLastCompletelyVisibleItemPosition();
                 if(totalItem< lastVisible+3)
                 {
-                    if(!isLoading)
-                    {
+                    if(!isLoading) {
                         isLoading=true;
                         loadData();
                     }
@@ -65,36 +69,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn1.setOnClickListener(v -> {
-           addNumber(1,btn1);
-        });
+        btn1.setOnClickListener(v -> {addNumber(1,btn1);});
 
-        btn2.setOnClickListener(v -> {
-           addNumber(2,btn2);
-        });
+        btn2.setOnClickListener(v -> {addNumber(2,btn2);});
 
-        btn3.setOnClickListener(v -> {
-            addNumber(3,btn3);
-        });
+        btn3.setOnClickListener(v -> { addNumber(3,btn3); });
 
-        btn4.setOnClickListener(v -> {
-            addNumber(4,btn4);
-        });
+        btn4.setOnClickListener(v -> { addNumber(4,btn4); });
 
-        btn5.setOnClickListener(v -> {
-            addNumber(5,btn5);
-        });
+        btn5.setOnClickListener(v -> { addNumber(5,btn5); });
 
-        btn6.setOnClickListener(v -> {
-            addNumber(6,btn6);
-        });
+        btn6.setOnClickListener(v -> { addNumber(6,btn6);});
 
-        btn7.setOnClickListener(v -> {
-            addNumber(7,btn7);
-        });
-        btn8.setOnClickListener(v -> {
-            addNumber(8,btn8);
-        });
+        btn7.setOnClickListener(v -> { addNumber(7,btn7); });
+
+        btn8.setOnClickListener(v -> {addNumber(8,btn8); });
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+              int position = viewHolder.getAdapterPosition();
+
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
     private void addNumber(int num, Button btn ){
@@ -109,11 +111,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData(){
-
         dao.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Mesa> mesas = new ArrayList<>();
+                mesas = new ArrayList<>();
                 for (DataSnapshot data : snapshot.getChildren()){
                     Mesa mesa = data.getValue(Mesa.class);
                     mesa.setKey(data.getKey());
