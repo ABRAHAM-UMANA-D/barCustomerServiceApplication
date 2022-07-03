@@ -93,10 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
+                int position = viewHolder.getAdapterPosition()-1;
                 adapter.getListMesas().remove(position);
                 String id=adapter.getListMesas().get(position).getKey();
                 dao.delete(id);
+                loadData();
             }
         }).attachToRecyclerView(recyclerView);
     }
